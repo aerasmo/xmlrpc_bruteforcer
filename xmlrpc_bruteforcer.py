@@ -2,22 +2,21 @@ import requests
 import time 
 import random
 
+# set target
 user = "admin"
 payloads_per_request = 500
-target_url = "http://httpbin.org/post"
- 
-# delay
+target_url = "~http://httpbin.org/post"
+wordlist = "passwords.txt"
+
+# sleep delay
 min_delay = 2
 max_delay = 5
 min_delay_seconds = min_delay * 60
 max_delay_seconds = max_delay * 60
 
-wordlist = "passwords.txt"
-
-# consts
+# constants
 headers = {'Content-Type': 'application/xml'} 
 insertlist = []
-
 
 def found_credentials(content):
     match_string = "Incorrect username or password."
